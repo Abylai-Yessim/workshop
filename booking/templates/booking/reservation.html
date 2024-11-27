@@ -1,0 +1,53 @@
+{% extends 'booking/base.html' %}
+
+{% block title %}Бронирование{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-6 offset-md-3">
+        <div class="card">
+            <div class="card-body">
+                <h2 class="card-title text-center mb-4">Забронировать столик</h2>
+                <form method="post">
+                    {% csrf_token %}
+                    {% for field in form %}
+                        <div class="mb-3">
+                            <label for="{{ field.id_for_label }}" class="form-label">{{ field.label }}</label>
+                            {% if field.errors %}
+                                <div class="alert alert-danger">
+                                    {{ field.errors }}
+                                </div>
+                            {% endif %}
+                            <div class="form-control-wrapper">
+                                {{ field }}
+                            </div>
+                            {% if field.help_text %}
+                                <small class="form-text text-muted">{{ field.help_text }}</small>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-primary">Забронировать</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-4">
+    <div class="col-md-8 offset-md-2">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Информация о бронировании</h5>
+                <ul class="list-unstyled">
+                    <li>✓ Бронирование доступно не менее чем за 2 часа до посещения</li>
+                    <li>✓ Максимальное количество гостей за одним столиком - 10 человек</li>
+                    <li>✓ При опоздании более чем на 15 минут бронь может быть снята</li>
+                    <li>✓ Для больших групп возможна предварительная оплата</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 

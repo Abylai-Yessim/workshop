@@ -1,0 +1,40 @@
+{% extends 'booking/base.html' %}
+
+{% block title %}Главная{% endblock %}
+
+{% block content %}
+<div class="jumbotron">
+    <h1 class="display-4">Добро пожаловать в наш ресторан!</h1>
+    <p class="lead">Насладитесь изысканной кухней в уютной атмосфере.</p>
+    <hr class="my-4">
+    <p>Забронируйте столик прямо сейчас!</p>
+    <a class="btn btn-primary btn-lg" href="{% url 'booking:reservation' %}" role="button">Забронировать столик</a>
+</div>
+
+<div class="row mt-5">
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Уютная атмосфера</h5>
+                <p class="card-text">Наш ресторан создан для комфортного отдыха и приятных встреч.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Изысканная кухня</h5>
+                <p class="card-text">Блюда от нашего шеф-повара не оставят вас равнодушными.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Отличный сервис</h5>
+                <p class="card-text">Наш персонал сделает всё для вашего комфортного отдыха.</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 
